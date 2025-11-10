@@ -22,7 +22,7 @@ on:
           - oneplus_ace2_pro_v
           - oneplus_ace3_v
           - oneplus_open_v
-          - oneplus12_v
+          - oneplus_12_v
           - oneplus_13r
           - oneplus_ace3_pro_v
           - oneplus_ace5
@@ -30,17 +30,19 @@ on:
           - oneplus_pad2_v
           - oneplus_nord_5
           - oneplus_ace5_pro
+          - oneplus_ace5_pro_b
           - oneplus_13
-          - oneplus_13_w
+          - oneplus_13_b
           - oneplus_13_global
           - oneplus_13t
-          - oneplus_13t_w
+          - oneplus_13t_b
           - oneplus_13s
-          - oneplus_13s_w
+          - oneplus_13s_b
           - oneplus_pad_2_pro
           - oneplus_pad_3
           - oneplus_ace5_ultra
-          - oneplus_ace6_w
+          - oneplus_ace_6
+          - oneplus_15
       HOOK:
         type: choice
         description: "钩子选择"
@@ -327,7 +329,7 @@ jobs:
           BASE_URL="https://github.com/${MANIFEST_REPO}/kernel_manifest.git"
 
           echo "使用 $MANIFEST_REPO 的分支 $MANIFEST_BRANCH 初始化仓库..."
-          repo init -u "$BASE_URL" -b "$MANIFEST_BRANCH" -m "${FILE}.xml" --repo-rev=v2.16 --depth=1 --no-clone-bundle --no-tags
+          repo init -u "$BASE_URL" -b "$MANIFEST_BRANCH" -m "${FILE}.xml" --depth=1 --no-clone-bundle --no-tags
           repo sync -c -j$(nproc) --no-clone-bundle --no-tags --force-sync
 
           for dir in kernel_platform/common kernel_platform/msm-kernel; do
